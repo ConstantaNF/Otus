@@ -16,30 +16,31 @@
 `cd ~/vagrantbox`
 `mkdir centos8`
 
-Перехожу в созданный каталог. Так как VPN пока не настроен (хотя есть WPS с Wireguard-сервером)загружаю из <https://app.vagrantup.com/boxes/search> box generic/centos8s:
+Перехожу в созданный каталог. Так как VPN пока не настроен (хотя есть WPS с Wireguard-сервером) загружаю из <https://app.vagrantup.com/boxes/search> box generic/centos8s:
 `cd centos8`
 `wget https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/vagrant.box` 
 
 Результат загрузки:
+
 `--2024-03-10 01:16:24--  https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/vagrant.box
 Распознаётся app.vagrantup.com (app.vagrantup.com)… 54.204.238.15, 54.221.251.148, 54.209.91.188, ...
 Подключение к app.vagrantup.com (app.vagrantup.com)|54.204.238.15|:443... соединение установлено.
 HTTP-запрос отправлен. Ожидание ответа… 302 Found
-Адрес: https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/download/vagrant.box [переход]
+Адрес: https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/download/vagrant.box
 --2024-03-10 01:16:25--  https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/download/vagrant.box
 Повторное использование соединения с app.vagrantup.com:443.
 HTTP-запрос отправлен. Ожидание ответа… 302 Found
-Адрес: https://archivist.vagrantup.com/v1/object/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJib3hlcy8wM2JlM2JiNi0zMTMxLTQzOGYtYmZmOS0wYjEyYTZhMDAyZGIiLCJtb2RlIjoiciIsImV4cGlyZSI6MTcxMDAyMzQ4NX0.F9-iJWqND-fZNaDZdgl4kNv3huEZ1xUL-nmLl1ius2U [переход]
+Адрес: https://archivist.vagrantup.com/v1/object/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJib3hlcy8wM2JlM2JiNi0zMTMxLTQzOGYtYmZmOS0wYjEyYTZhMDAyZGIiLCJtb2RlIjoiciIsImV4cGlyZSI6MTcxMDAyMzQ4NX0.F9-iJWqND-fZNaDZdgl4kNv3huEZ1xUL-nmLl1ius2U
 --2024-03-10 01:16:25--  https://archivist.vagrantup.com/v1/object/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJib3hlcy8wM2JlM2JiNi0zMTMxLTQzOGYtYmZmOS0wYjEyYTZhMDAyZGIiLCJtb2RlIjoiciIsImV4cGlyZSI6MTcxMDAyMzQ4NX0.F9-iJWqND-fZNaDZdgl4kNv3huEZ1xUL-nmLl1ius2U
 Распознаётся archivist.vagrantup.com (archivist.vagrantup.com)… 54.157.58.70, 52.204.242.176, 18.205.36.100, ...
 Подключение к archivist.vagrantup.com (archivist.vagrantup.com)|54.157.58.70|:443... соединение установлено.
 HTTP-запрос отправлен. Ожидание ответа… 307 Temporary Redirect
-Адрес: https://vagrantcloud-files-production.s3-accelerate.amazonaws.com/archivist/boxes/03be3bb6-3131-438f-bff9-0b12a6a002db?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6NDPRW4B3M4V3Z62%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T221626Z&X-Amz-Expires=900&X-Amz-Security-Token=FwoGZXIvYXdzEBAaDBbgy%2BpVXlDFC02KECK3AddFfFnNn2NWoNDG0%2BDaQsBV31RU9Nu5Re0QJboZDZf1GDcE1gsw8YgF18Q7Yeu2Ixv3stivhQfDaWeCo%2BWlRcXAko5j4OcpQo7MJO7K2v3Crnr%2FUQ%2FG%2BvEdnln5MPOLYzg2tfIheWBoaOCIbPlcPkDvPcOuENTwVRGbLPBgPdDGgvP9ue5BcmpVzYH4fpklHRiZnwnhokUdv0XPQazc8LyEolgNFtb3vq5k4i0xA9ymk7rLF509DCjmubOvBjIt5jBgPMgKTqH%2BTSZYPwte%2B%2FfGQM9WFyVkQ8ExMqx%2FT47qdxhmX2RcNhVffLci&X-Amz-SignedHeaders=host&X-Amz-Signature=2c202734f0f4e568a43e4115cb1b74800f3f92943cff5cbbf40a771790b17853 [переход]
+Адрес: https://vagrantcloud-files-production.s3-accelerate.amazonaws.com/archivist/boxes/03be3bb6-3131-438f-bff9-0b12a6a002db?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6NDPRW4B3M4V3Z62%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T221626Z&X-Amz-Expires=900&X-Amz-Security-Token=FwoGZXIvYXdzEBAaDBbgy%2BpVXlDFC02KECK3AddFfFnNn2NWoNDG0%2BDaQsBV31RU9Nu5Re0QJboZDZf1GDcE1gsw8YgF18Q7Yeu2Ixv3stivhQfDaWeCo%2BWlRcXAko5j4OcpQo7MJO7K2v3Crnr%2FUQ%2FG%2BvEdnln5MPOLYzg2tfIheWBoaOCIbPlcPkDvPcOuENTwVRGbLPBgPdDGgvP9ue5BcmpVzYH4fpklHRiZnwnhokUdv0XPQazc8LyEolgNFtb3vq5k4i0xA9ymk7rLF509DCjmubOvBjIt5jBgPMgKTqH%2BTSZYPwte%2B%2FfGQM9WFyVkQ8ExMqx%2FT47qdxhmX2RcNhVffLci&X-Amz-SignedHeaders=host&X-Amz-Signature=2c202734f0f4e568a43e4115cb1b74800f3f92943cff5cbbf40a771790b17853 
 --2024-03-10 01:16:26--  https://vagrantcloud-files-production.s3-accelerate.amazonaws.com/archivist/boxes/03be3bb6-3131-438f-bff9-0b12a6a002db?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6NDPRW4B3M4V3Z62%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T221626Z&X-Amz-Expires=900&X-Amz-Security-Token=FwoGZXIvYXdzEBAaDBbgy%2BpVXlDFC02KECK3AddFfFnNn2NWoNDG0%2BDaQsBV31RU9Nu5Re0QJboZDZf1GDcE1gsw8YgF18Q7Yeu2Ixv3stivhQfDaWeCo%2BWlRcXAko5j4OcpQo7MJO7K2v3Crnr%2FUQ%2FG%2BvEdnln5MPOLYzg2tfIheWBoaOCIbPlcPkDvPcOuENTwVRGbLPBgPdDGgvP9ue5BcmpVzYH4fpklHRiZnwnhokUdv0XPQazc8LyEolgNFtb3vq5k4i0xA9ymk7rLF509DCjmubOvBjIt5jBgPMgKTqH%2BTSZYPwte%2B%2FfGQM9WFyVkQ8ExMqx%2FT47qdxhmX2RcNhVffLci&X-Amz-SignedHeaders=host&X-Amz-Signature=2c202734f0f4e568a43e4115cb1b74800f3f92943cff5cbbf40a771790b17853
 Распознаётся vagrantcloud-files-production.s3-accelerate.amazonaws.com (vagrantcloud-files-production.s3-accelerate.amazonaws.com)… 52.85.48.12
 Подключение к vagrantcloud-files-production.s3-accelerate.amazonaws.com (vagrantcloud-files-production.s3-accelerate.amazonaws.com)|52.85.48.12|:443... соединение установлено.
 HTTP-запрос отправлен. Ожидание ответа… 200 OK
-Длина: 1295213449 (1,2G) [binary/octet-stream]
+Длина: 1295213449 (1,2G) 
 Сохранение в: ‘vagrant.box’
 
 vagrant.box                               100%[==================================================================================>]   1,21G  11,2MB/s    за 1m 53s  
