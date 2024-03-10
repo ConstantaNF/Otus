@@ -15,11 +15,13 @@
 Перехожу в заранее подготовленный каталог для Vagrant и создаю каталог для будущей ВМ:
 
 `cd ~/vagrantbox`
+
 `mkdir centos8`
 
 Перехожу в созданный каталог. Так как VPN пока не настроен (хотя есть WPS с Wireguard-сервером) загружаю из <https://app.vagrantup.com/boxes/search> box generic/centos8s:
 
 `cd centos8`
+
 `wget https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/vagrant.box` 
 
 Результат загрузки:
@@ -63,23 +65,24 @@ vagrant.box                               100%[=================================
 `vagrant init generic/centos8s`
 
 Следуя методичке по выполнению домашнего задания задаю конфигурацию будущей ВМ из шаблона vagrantfile в репозитории <https://github.com/Nickmob/vagrant_kernel_update>. Но в моём случае требуется корректировка шаблона. Так как я разворачиваю box, который загружен вручную и лежит локально на моём ПК, в моём vagrantfile необходимо удалить строку :box_version => "4.3.4", так как при её наличии vagrant пытается тянуть box из репозитория <https://vagrantcloud.com/generic/centos8s> и я, выполнив `vagrant up`, получаю ошибку:
+
 `Bringing machine 'kernel-update' up with 'virtualbox' provider...
 ==> kernel-update: Box 'generic/centos8s' could not be found. Attempting to find and install...
     kernel-update: Box Provider: virtualbox
     kernel-update: Box Version: 4.3.4
 The box 'generic/centos8s' could not be found or
 could not be accessed in the remote catalog. If this is a private
-box on HashiCorp's Vagrant Cloud, please verify you're logged in via
-`vagrant login`. Also, please double-check the name. The expanded
+box on HashiCorp's Vagrant Cloud, please verify you're logged in via 'vagrant login'. Also, please double-check the name. The expanded
 URL and error message are shown below:
-
 URL: ["https://vagrantcloud.com/generic/centos8s"]
 Error: The requested URL returned error: 404`
 
 После корректировки vagrantfile выполняю
+
 `vagrant up`	
 
 Результат:
+
 `Bringing machine 'kernel-update' up with 'virtualbox' provider...
 ==> kernel-update: Importing base box 'generic/centos8s'...
 ==> kernel-update: Matching MAC address for NAT networking...
@@ -116,14 +119,14 @@ Error: The requested URL returned error: 404`
 ==> kernel-update: Setting hostname…`
 
 Проверяю статус ВМ:
+
 `vagrant global-status`
 
 Результат:
-`id       name          provider   state   directory                                
 
+`id       name          provider   state   directory                                
 286c067  kernel-update virtualbox running /home/adminkonstantin/vagrantbox/centos8 
- 
-The above shows information about all known Vagrant environments
+ The above shows information about all known Vagrant environments
 on this machine. This data is cached and may not be completely
 up-to-date (use "vagrant global-status --prune" to prune invalid
 entries). To interact with any of the machines, you can go to that
@@ -134,12 +137,15 @@ Vagrant commands from any directory. For example:
 ### Обновление ядра ###
 
 Подключаюсь к созданной ВМ:
+
 `vagrant ssh`
 
 Проверяю версию ядра ВМ:
+
 `uname -r`
 
 Результат:
+
 `4.18.0-532.el8.x86_64`
 
 Подключаю репозиторий для обновления ядра:
@@ -157,16 +163,11 @@ Extra Packages for Enterprise Linux 8 - x86_64                                  
 Extra Packages for Enterprise Linux 8 - Next - x86_64                                                                                                          446 kB/s | 368 kB     00:00    
 elrepo-release-8.el8.elrepo.noarch.rpm                                                                                                                         9.4 kB/s |  13 kB     00:01    
 Dependencies resolved.
-
- Package                                         Architecture                            Version                                           Repository                                     Size
-
+Package                                         Architecture                            Version                                           Repository                                     Size
 Installing:
  elrepo-release                                  noarch                                  8.3-1.el8.elrepo                                  @commandline                                   13 k
-
 Transaction Summary
-
 Install  1 Package
-
 Total size: 13 k
 Installed size: 5.0 k
 Downloading Packages:
@@ -178,40 +179,34 @@ Running transaction
   Preparing        :                                                                                                                                                                       1/1 
   Installing       : elrepo-release-8.3-1.el8.elrepo.noarch                                                                                                                                1/1 
   Verifying        : elrepo-release-8.3-1.el8.elrepo.noarch                                                                                                                                1/1 
-
 Installed:
   elrepo-release-8.3-1.el8.elrepo.noarch                                                                                                                                                       
-
 Complete!`
 
 Устанавливаю последнюю версию ядра:
+
 `sudo yum --enablerepo elrepo-kernel install kernel-ml -y`
 
 Результат:
+
 `Failed to set locale, defaulting to C.UTF-8
 ELRepo.org Community Enterprise Linux Repository - el8                                                                                                         203 kB/s | 203 kB     00:00    
 ELRepo.org Community Enterprise Linux Kernel Repository - el8                                                                                                  2.1 MB/s | 2.2 MB     00:01    
 Dependencies resolved.
-
  Package                                          Architecture                          Version                                             Repository                                    Size
-
 Installing:
  kernel-ml                                        x86_64                                6.7.9-1.el8.elrepo                                  elrepo-kernel                                121 k
 Installing dependencies:
  kernel-ml-core                                   x86_64                                6.7.9-1.el8.elrepo                                  elrepo-kernel                                 39 M
  kernel-ml-modules                                x86_64                                6.7.9-1.el8.elrepo                                  elrepo-kernel                                 34 M
-
 Transaction Summary
-
 Install  3 Packages
-
 Total download size: 73 M
 Installed size: 115 M
 Downloading Packages:
 (1/3): kernel-ml-6.7.9-1.el8.elrepo.x86_64.rpm                                                                                                                 419 kB/s | 121 kB     00:00    
 (2/3): kernel-ml-modules-6.7.9-1.el8.elrepo.x86_64.rpm                                                                                                         2.2 MB/s |  34 MB     00:15    
 (3/3): kernel-ml-core-6.7.9-1.el8.elrepo.x86_64.rpm                                                                                                            2.2 MB/s |  39 MB     00:17    
-
 Total                                                                                                                                                          4.1 MB/s |  73 MB     00:18     
 ELRepo.org Community Enterprise Linux Kernel Repository - el8                                                                                                  1.6 MB/s | 1.7 kB     00:00    
 Importing GPG key 0xBAADAE52:
@@ -233,15 +228,12 @@ Running transaction
   Running scriptlet: kernel-ml-core-6.7.9-1.el8.elrepo.x86_64                                                                                                                              3/3 
 dracut: Disabling early microcode, because kernel does not support it. CONFIG_MICROCODE_[AMD|INTEL]!=y
 dracut: Disabling early microcode, because kernel does not support it. CONFIG_MICROCODE_[AMD|INTEL]!=y
-
   Running scriptlet: kernel-ml-6.7.9-1.el8.elrepo.x86_64                                                                                                                                   3/3 
   Verifying        : kernel-ml-6.7.9-1.el8.elrepo.x86_64                                                                                                                                   1/3 
   Verifying        : kernel-ml-core-6.7.9-1.el8.elrepo.x86_64                                                                                                                              2/3 
   Verifying        : kernel-ml-modules-6.7.9-1.el8.elrepo.x86_64                                                                                                                           3/3 
-
 Installed:
   kernel-ml-6.7.9-1.el8.elrepo.x86_64                        kernel-ml-core-6.7.9-1.el8.elrepo.x86_64                        kernel-ml-modules-6.7.9-1.el8.elrepo.x86_64                       
-
 Complete!`
 
 Перезагружаю ВМ: 
@@ -258,7 +250,7 @@ Complete!`
 
 ### Загрузка домашнего задания в репозиторий GitHub ###
 
-Оформляю отчёт по домашнему заданию в текстовом редакторе с использованием языка разметки Markdown. Создаю в каталоге с vagrantfile файл README.MD  и переношу сюда отчёт из текстового редактора. Файл README.MD готов к загрузке в репозиторий. Добавляю в папку с файлом README.MD и vagrantfile систему контроля версий git:
+Оформляю отчёт по домашнему заданию в текстовом редакторе с использованием языка разметки Markdown. Создаю в каталоге с vagrantfile файл README.md  и переношу сюда отчёт из текстового редактора. Файл README.md готов к загрузке в репозиторий. Добавляю в папку с файлом README.md и vagrantfile систему контроля версий git:
 
 `git init`
 
@@ -276,27 +268,11 @@ Complete!`
 подсказка: 	git branch -m <name>
 Инициализирован пустой репозиторий Git в /home/adminkonstantin/vagrantbox/centos8/.git/`
 
-Зафиксируем изменения:
-
-`git commit -m «kernel-update»`
-
-Результат:
-
-`Текущая ветка: master
-Начальный коммит
-Неотслеживаемые файлы:
-  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
-	.vagrant/
-	README.md
-	Vagrantfile
-индекс пуст, но есть неотслеживаемые файлы
-(используйте «git add», чтобы проиндексировать их)`
-
 Добавляю файлы в коммит:
 
 `git add README.md Vagrantfile`
 
-Снова фиксирую изменения:
+Зафиксируем изменения:
 
 `git commit -m «kernel-update»`
 
