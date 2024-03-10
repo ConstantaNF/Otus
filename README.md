@@ -64,7 +64,7 @@ vagrant.box                               100%[=================================
 
 `vagrant init generic/centos8s`
 
-Следуя методичке по выполнению домашнего задания задаю конфигурацию будущей ВМ из шаблона vagrantfile в репозитории <https://github.com/Nickmob/vagrant_kernel_update>. Но в моём случае требуется корректировка шаблона. Так как я разворачиваю box, который загружен вручную и лежит локально на моём ПК, в моём vagrantfile необходимо удалить строку :box_version => "4.3.4", так как при её наличии vagrant пытается тянуть box из репозитория <https://vagrantcloud.com/generic/centos8s> и я, выполнив `vagrant up`, получаю ошибку:
+Следуя методичке по выполнению домашнего задания задаю конфигурацию будущей ВМ из шаблона vagrantfile в репозитории <https://github.com/Nickmob/vagrant_kernel_update>. Но в моём случае требуется корректировка шаблона. Так как я разворачиваю box, который загружен вручную и лежит локально на моём ПК, в моём vagrantfile необходимо удалить строку `:box_version => "4.3.4",` так как при её наличии vagrant пытается тянуть box из репозитория <https://vagrantcloud.com/generic/centos8s> и я, выполнив `vagrant up`, получаю ошибку:
 
 `Bringing machine 'kernel-update' up with 'virtualbox' provider...
 ==> kernel-update: Box 'generic/centos8s' could not be found. Attempting to find and install...
@@ -125,7 +125,7 @@ Error: The requested URL returned error: 404`
 Результат:
 
 `id       name          provider   state   directory                                
-286c067  kernel-update virtualbox running /home/adminkonstantin/vagrantbox/centos8 
+                        286c067  kernel-update virtualbox running /home/adminkonstantin/vagrantbox/centos8 
  The above shows information about all known Vagrant environments
 on this machine. This data is cached and may not be completely
 up-to-date (use "vagrant global-status --prune" to prune invalid
@@ -242,7 +242,7 @@ Complete!`
 
 Проверяю версию ядра:
 
-`uame -r`
+`uname -r`
 
 Результат:
 
@@ -282,10 +282,6 @@ Complete!`
  2 files changed, 23 insertions(+)
  create mode 100644 README.md
  create mode 100644 Vagrantfile`
-
-Добавляю информацию о созданном репозитории в GitHub:
-
-`git remote add origin https://github.com/ConstantaNF/Otus`
 
 Отправляю файлы в удаленный репозиторий GitHub:
 
