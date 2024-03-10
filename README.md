@@ -302,5 +302,4 @@ remote: Create a pull request for 'master' on GitHub by visiting:
 remote:      https://github.com/ConstantaNF/Otus/pull/new/master
 remote: 
 To https://github.com/ConstantaNF/Otus
- * [new branch]      master -> master
-Ветка «master» отслеживает внешнюю ветку «master» из «origin».`
+[new branch]      master -> master Ветка «master» отслеживает внешнюю ветку «master» из «origin».`
