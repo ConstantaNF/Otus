@@ -13,10 +13,12 @@
 ### Подготовка и запуск ВМ с помощью Vagrant ###
 
 Перехожу в заранее подготовленный каталог для Vagrant и создаю каталог для будущей ВМ:
+
 `cd ~/vagrantbox`
 `mkdir centos8`
 
 Перехожу в созданный каталог. Так как VPN пока не настроен (хотя есть WPS с Wireguard-сервером) загружаю из <https://app.vagrantup.com/boxes/search> box generic/centos8s:
+
 `cd centos8`
 `wget https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/vagrant.box` 
 
@@ -26,38 +28,38 @@
 Распознаётся app.vagrantup.com (app.vagrantup.com)… 54.204.238.15, 54.221.251.148, 54.209.91.188, ...
 Подключение к app.vagrantup.com (app.vagrantup.com)|54.204.238.15|:443... соединение установлено.
 HTTP-запрос отправлен. Ожидание ответа… 302 Found
-Адрес: https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/download/vagrant.box
+Адрес: https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/download/vagrant.box [переход]
 --2024-03-10 01:16:25--  https://app.vagrantup.com/generic/boxes/centos8s/versions/4.3.12/providers/virtualbox/amd64/download/vagrant.box
 Повторное использование соединения с app.vagrantup.com:443.
 HTTP-запрос отправлен. Ожидание ответа… 302 Found
-Адрес: https://archivist.vagrantup.com/v1/object/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJib3hlcy8wM2JlM2JiNi0zMTMxLTQzOGYtYmZmOS0wYjEyYTZhMDAyZGIiLCJtb2RlIjoiciIsImV4cGlyZSI6MTcxMDAyMzQ4NX0.F9-iJWqND-fZNaDZdgl4kNv3huEZ1xUL-nmLl1ius2U
+Адрес: https://archivist.vagrantup.com/v1/object/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJib3hlcy8wM2JlM2JiNi0zMTMxLTQzOGYtYmZmOS0wYjEyYTZhMDAyZGIiLCJtb2RlIjoiciIsImV4cGlyZSI6MTcxMDAyMzQ4NX0.F9-iJWqND-fZNaDZdgl4kNv3huEZ1xUL-nmLl1ius2U [переход]
 --2024-03-10 01:16:25--  https://archivist.vagrantup.com/v1/object/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJib3hlcy8wM2JlM2JiNi0zMTMxLTQzOGYtYmZmOS0wYjEyYTZhMDAyZGIiLCJtb2RlIjoiciIsImV4cGlyZSI6MTcxMDAyMzQ4NX0.F9-iJWqND-fZNaDZdgl4kNv3huEZ1xUL-nmLl1ius2U
 Распознаётся archivist.vagrantup.com (archivist.vagrantup.com)… 54.157.58.70, 52.204.242.176, 18.205.36.100, ...
 Подключение к archivist.vagrantup.com (archivist.vagrantup.com)|54.157.58.70|:443... соединение установлено.
 HTTP-запрос отправлен. Ожидание ответа… 307 Temporary Redirect
-Адрес: https://vagrantcloud-files-production.s3-accelerate.amazonaws.com/archivist/boxes/03be3bb6-3131-438f-bff9-0b12a6a002db?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6NDPRW4B3M4V3Z62%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T221626Z&X-Amz-Expires=900&X-Amz-Security-Token=FwoGZXIvYXdzEBAaDBbgy%2BpVXlDFC02KECK3AddFfFnNn2NWoNDG0%2BDaQsBV31RU9Nu5Re0QJboZDZf1GDcE1gsw8YgF18Q7Yeu2Ixv3stivhQfDaWeCo%2BWlRcXAko5j4OcpQo7MJO7K2v3Crnr%2FUQ%2FG%2BvEdnln5MPOLYzg2tfIheWBoaOCIbPlcPkDvPcOuENTwVRGbLPBgPdDGgvP9ue5BcmpVzYH4fpklHRiZnwnhokUdv0XPQazc8LyEolgNFtb3vq5k4i0xA9ymk7rLF509DCjmubOvBjIt5jBgPMgKTqH%2BTSZYPwte%2B%2FfGQM9WFyVkQ8ExMqx%2FT47qdxhmX2RcNhVffLci&X-Amz-SignedHeaders=host&X-Amz-Signature=2c202734f0f4e568a43e4115cb1b74800f3f92943cff5cbbf40a771790b17853 
+Адрес: https://vagrantcloud-files-production.s3-accelerate.amazonaws.com/archivist/boxes/03be3bb6-3131-438f-bff9-0b12a6a002db?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6NDPRW4B3M4V3Z62%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T221626Z&X-Amz-Expires=900&X-Amz-Security-Token=FwoGZXIvYXdzEBAaDBbgy%2BpVXlDFC02KECK3AddFfFnNn2NWoNDG0%2BDaQsBV31RU9Nu5Re0QJboZDZf1GDcE1gsw8YgF18Q7Yeu2Ixv3stivhQfDaWeCo%2BWlRcXAko5j4OcpQo7MJO7K2v3Crnr%2FUQ%2FG%2BvEdnln5MPOLYzg2tfIheWBoaOCIbPlcPkDvPcOuENTwVRGbLPBgPdDGgvP9ue5BcmpVzYH4fpklHRiZnwnhokUdv0XPQazc8LyEolgNFtb3vq5k4i0xA9ymk7rLF509DCjmubOvBjIt5jBgPMgKTqH%2BTSZYPwte%2B%2FfGQM9WFyVkQ8ExMqx%2FT47qdxhmX2RcNhVffLci&X-Amz-SignedHeaders=host&X-Amz-Signature=2c202734f0f4e568a43e4115cb1b74800f3f92943cff5cbbf40a771790b17853 [переход]
 --2024-03-10 01:16:26--  https://vagrantcloud-files-production.s3-accelerate.amazonaws.com/archivist/boxes/03be3bb6-3131-438f-bff9-0b12a6a002db?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6NDPRW4B3M4V3Z62%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T221626Z&X-Amz-Expires=900&X-Amz-Security-Token=FwoGZXIvYXdzEBAaDBbgy%2BpVXlDFC02KECK3AddFfFnNn2NWoNDG0%2BDaQsBV31RU9Nu5Re0QJboZDZf1GDcE1gsw8YgF18Q7Yeu2Ixv3stivhQfDaWeCo%2BWlRcXAko5j4OcpQo7MJO7K2v3Crnr%2FUQ%2FG%2BvEdnln5MPOLYzg2tfIheWBoaOCIbPlcPkDvPcOuENTwVRGbLPBgPdDGgvP9ue5BcmpVzYH4fpklHRiZnwnhokUdv0XPQazc8LyEolgNFtb3vq5k4i0xA9ymk7rLF509DCjmubOvBjIt5jBgPMgKTqH%2BTSZYPwte%2B%2FfGQM9WFyVkQ8ExMqx%2FT47qdxhmX2RcNhVffLci&X-Amz-SignedHeaders=host&X-Amz-Signature=2c202734f0f4e568a43e4115cb1b74800f3f92943cff5cbbf40a771790b17853
 Распознаётся vagrantcloud-files-production.s3-accelerate.amazonaws.com (vagrantcloud-files-production.s3-accelerate.amazonaws.com)… 52.85.48.12
 Подключение к vagrantcloud-files-production.s3-accelerate.amazonaws.com (vagrantcloud-files-production.s3-accelerate.amazonaws.com)|52.85.48.12|:443... соединение установлено.
 HTTP-запрос отправлен. Ожидание ответа… 200 OK
-Длина: 1295213449 (1,2G) 
+Длина: 1295213449 (1,2G) [binary/octet-stream]
 Сохранение в: ‘vagrant.box’
-
 vagrant.box                               100%[==================================================================================>]   1,21G  11,2MB/s    за 1m 53s  
-
 2024-03-10 01:18:19 (11,0 MB/s) - ‘vagrant.box’ сохранён [1295213449/1295213449]`
 
 Импортирую образ:
+
 `vagrant box add —name 'generic/centos8s' vagrant.box`
 
 Результат:
+
 `==> box: Box file was not detected as metadata. Adding it directly...
 ==> box: Adding box 'generic/centos8s' (v0) for provider: 
     box: Unpacking necessary files from: file:///home/adminkonstantin/vagrantbox/centos8/vagrant.box
 ==> box: Successfully added box 'generic/centos8s' (v0) for ''!`
 
-
 Создаю Vagrantfile:
+
 `vagrant init generic/centos8s`
 
 Следуя методичке по выполнению домашнего задания задаю конфигурацию будущей ВМ из шаблона vagrantfile в репозитории <https://github.com/Nickmob/vagrant_kernel_update>. Но в моём случае требуется корректировка шаблона. Так как я разворачиваю box, который загружен вручную и лежит локально на моём ПК, в моём vagrantfile необходимо удалить строку :box_version => "4.3.4", так как при её наличии vagrant пытается тянуть box из репозитория <https://vagrantcloud.com/generic/centos8s> и я, выполнив `vagrant up`, получаю ошибку:
@@ -118,7 +120,7 @@ Error: The requested URL returned error: 404`
 
 Результат:
 `id       name          provider   state   directory                                
------------------------------------------------------------------------------------
+
 286c067  kernel-update virtualbox running /home/adminkonstantin/vagrantbox/centos8 
  
 The above shows information about all known Vagrant environments
@@ -145,6 +147,7 @@ Vagrant commands from any directory. For example:
 `sudo yum install -y https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm`
 
 Результат:
+
 `Failed to set locale, defaulting to C.UTF-8
 CentOS Stream 8 - AppStream                                                                                                                                    4.7 MB/s |  28 MB     00:05    
 CentOS Stream 8 - BaseOS                                                                                                                                       2.1 MB/s |  10 MB     00:04    
@@ -154,14 +157,14 @@ Extra Packages for Enterprise Linux 8 - x86_64                                  
 Extra Packages for Enterprise Linux 8 - Next - x86_64                                                                                                          446 kB/s | 368 kB     00:00    
 elrepo-release-8.el8.elrepo.noarch.rpm                                                                                                                         9.4 kB/s |  13 kB     00:01    
 Dependencies resolved.
-===============================================================================================================================================================================================
+
  Package                                         Architecture                            Version                                           Repository                                     Size
-===============================================================================================================================================================================================
+
 Installing:
  elrepo-release                                  noarch                                  8.3-1.el8.elrepo                                  @commandline                                   13 k
 
 Transaction Summary
-===============================================================================================================================================================================================
+
 Install  1 Package
 
 Total size: 13 k
@@ -189,9 +192,9 @@ Complete!`
 ELRepo.org Community Enterprise Linux Repository - el8                                                                                                         203 kB/s | 203 kB     00:00    
 ELRepo.org Community Enterprise Linux Kernel Repository - el8                                                                                                  2.1 MB/s | 2.2 MB     00:01    
 Dependencies resolved.
-===============================================================================================================================================================================================
+
  Package                                          Architecture                          Version                                             Repository                                    Size
-===============================================================================================================================================================================================
+
 Installing:
  kernel-ml                                        x86_64                                6.7.9-1.el8.elrepo                                  elrepo-kernel                                121 k
 Installing dependencies:
@@ -199,7 +202,7 @@ Installing dependencies:
  kernel-ml-modules                                x86_64                                6.7.9-1.el8.elrepo                                  elrepo-kernel                                 34 M
 
 Transaction Summary
-===============================================================================================================================================================================================
+
 Install  3 Packages
 
 Total download size: 73 M
@@ -208,7 +211,7 @@ Downloading Packages:
 (1/3): kernel-ml-6.7.9-1.el8.elrepo.x86_64.rpm                                                                                                                 419 kB/s | 121 kB     00:00    
 (2/3): kernel-ml-modules-6.7.9-1.el8.elrepo.x86_64.rpm                                                                                                         2.2 MB/s |  34 MB     00:15    
 (3/3): kernel-ml-core-6.7.9-1.el8.elrepo.x86_64.rpm                                                                                                            2.2 MB/s |  39 MB     00:17    
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Total                                                                                                                                                          4.1 MB/s |  73 MB     00:18     
 ELRepo.org Community Enterprise Linux Kernel Repository - el8                                                                                                  1.6 MB/s | 1.7 kB     00:00    
 Importing GPG key 0xBAADAE52:
@@ -240,13 +243,17 @@ Installed:
   kernel-ml-6.7.9-1.el8.elrepo.x86_64                        kernel-ml-core-6.7.9-1.el8.elrepo.x86_64                        kernel-ml-modules-6.7.9-1.el8.elrepo.x86_64                       
 
 Complete!`
-Перезагружаю ВМ:
+
+Перезагружаю ВМ: 
+
 `sudo reboot`
 
 Проверяю версию ядра:
+
 `uame -r`
 
 Результат:
+
 `6.7.9-1.el8.elrepo.x86_64`
 
 ### Загрузка домашнего задания в репозиторий GitHub ###
@@ -256,6 +263,7 @@ Complete!`
 `git init`
 
 Результат:
+
 `подсказка: Using 'master' as the name for the initial branch. This default branch name
 подсказка: is subject to change. To configure the initial branch name to use in all
 подсказка: of your new repositories, which will suppress this warning, call:
@@ -273,20 +281,19 @@ Complete!`
 `git commit -m «kernel-update»`
 
 Результат:
+
 `Текущая ветка: master
-
 Начальный коммит
-
 Неотслеживаемые файлы:
   (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
 	.vagrant/
 	README.md
 	Vagrantfile
-
 индекс пуст, но есть неотслеживаемые файлы
 (используйте «git add», чтобы проиндексировать их)`
 
 Добавляю файлы в коммит:
+
 `git add README.md Vagrantfile`
 
 Снова фиксирую изменения:
